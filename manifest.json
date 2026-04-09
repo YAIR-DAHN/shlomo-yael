@@ -1,0 +1,17 @@
+{
+    "name": "שלמה & יעל - ספירה לאחור",
+    "short_name": "ספירה לאחור",
+    "description": "ספירה לאחור לחתונה של שלמה ויעל",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#c9a96e",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "photos/0.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

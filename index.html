@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>שלמה & יעל - ספירה לאחור לחתונה 💕</title>
+    <meta name="description" content="ספירה לאחור לחתונה של שלמה ויעל - כ״ו אייר תשפ״ו">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="overlay hidden">
+        <div class="password-card glass-card">
+            <div class="password-heart">💕</div>
+            <h2 class="password-title">כניסה לאזור האישי</h2>
+            <input type="password" id="password-input" class="password-field" placeholder="הכניסי סיסמה...">
+            <p id="password-error" class="password-error"></p>
+            <button id="password-submit" class="btn-gold">כניסה 💕</button>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <main id="app" class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="couple-logo">
+                <span class="name groom" id="groom-name">שלמה</span>
+                <span class="heart-separator">
+                    <svg viewBox="0 0 24 24" class="heart-svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </span>
+                <span class="name bride" id="bride-name">יעל</span>
+            </div>
+            <div class="subtitle-badge">
+                <span class="subtitle-text">חתונת השנה</span>
+            </div>
+            <div class="wedding-info">
+                <span id="hebrew-date" class="date-text"></span>
+                <span class="date-divider">✦</span>
+                <span id="gregorian-date" class="date-text"></span>
+            </div>
+        </header>
+
+        <!-- Countdown Timer -->
+        <section class="countdown-section" id="countdown-section">
+            <h2 class="section-title shimmer-text" id="countdown-title">ספירה לאחור</h2>
+            <div class="countdown-grid">
+                <div class="time-block glass-card">
+                    <div class="time-value" id="seconds">00</div>
+                    <div class="time-label">שניות</div>
+                </div>
+                <div class="time-sep">:</div>
+                <div class="time-block glass-card">
+                    <div class="time-value" id="minutes">00</div>
+                    <div class="time-label">דקות</div>
+                </div>
+                <div class="time-sep">:</div>
+                <div class="time-block glass-card">
+                    <div class="time-value" id="hours">00</div>
+                    <div class="time-label">שעות</div>
+                </div>
+                <div class="time-sep">:</div>
+                <div class="time-block glass-card">
+                    <div class="time-value" id="days">00</div>
+                    <div class="time-label">ימים</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before Countdown Message -->
+        <section class="message-section hidden" id="before-section">
+            <div class="glass-card message-card">
+                <p class="message-text" id="before-text"></p>
+            </div>
+        </section>
+
+        <!-- Daily Content -->
+        <section class="daily-section" id="daily-section">
+            <!-- Day Badge -->
+            <div class="day-badge-container">
+                <div class="day-badge">
+                    <span class="day-label">יום</span>
+                    <span class="day-number" id="day-number">30</span>
+                </div>
+            </div>
+
+            <!-- Photo Reveal -->
+            <div class="reveal-wrapper" id="reveal-wrapper">
+                <div class="reveal-container" id="reveal-container">
+                    <!-- Cover -->
+                    <div class="reveal-cover" id="reveal-cover">
+                        <div class="cover-content">
+                            <div class="cover-icon">💝</div>
+                            <p class="cover-text" id="cover-text">לחצי לגלות את ההפתעה של היום</p>
+                            <div class="cover-pulse"></div>
+                        </div>
+                    </div>
+                    <!-- Photo -->
+                    <div class="photo-frame">
+                        <img id="daily-photo" src="" alt="תמונה יומית" class="daily-photo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blessing -->
+            <div class="blessing-card glass-card" id="blessing-card">
+                <div class="blessing-icon">💌</div>
+                <p class="blessing-text" id="blessing-text"></p>
+            </div>
+        </section>
+
+        <!-- Music Player -->
+        <section class="music-section" id="music-section">
+            <div class="music-player glass-card">
+                <button class="play-btn" id="play-btn" aria-label="Play/Pause">
+                    <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" class="hidden">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
+                <div class="music-info">
+                    <span class="song-title" id="song-title">🎵 שיר ליום הזה</span>
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="time-display">
+                        <span id="current-time">0:00</span>
+                        <span id="total-time">0:00</span>
+                    </div>
+                </div>
+                <div class="visualizer" id="visualizer">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+            <audio id="audio-player" preload="auto"></audio>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery-section" id="gallery-section">
+            <h2 class="section-title shimmer-text">הימים שלנו</h2>
+            <div class="gallery-scroll" id="gallery-scroll"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-credit" id="footer-credit">נבנה ע"י <span class="yd-link">y.d. systems</span></p>
+        </footer>
+
+        <!-- Contact Popup -->
+        <div class="contact-popup hidden" id="contact-popup">
+            <div class="contact-card glass-card">
+                <button class="contact-close" id="contact-close">✕</button>
+                <h3 class="contact-title">y.d. systems</h3>
+                <div class="contact-items">
+                    <a href="tel:0583730000" class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>0583730000</span>
+                    </a>
+                    <a href="mailto:yairdahn@gmail.com" class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>yairdahn@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/972583730000" target="_blank" class="contact-item whatsapp">
+                        <span class="contact-icon">💬</span>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Photo Modal -->
+    <div class="modal-overlay hidden" id="photo-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">✕</button>
+            <div class="modal-day-badge" id="modal-day-badge"></div>
+            <img id="modal-photo" src="" alt="" class="modal-photo">
+            <p class="modal-blessing" id="modal-blessing"></p>
+        </div>
+    </div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas" class="hidden"></canvas>
+
+    <script src="config.js"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
