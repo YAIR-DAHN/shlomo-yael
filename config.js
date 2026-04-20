@@ -100,6 +100,7 @@ const CONFIG = {
         afterWedding: "התחתנו! 🎊💕",
         passwordPlaceholder: "הכניסי סיסמה...",
         passwordButton: "כניסה 💕",
-        passwordError: "סיסמה שגויה, נסי שנית 🔒"
+        passwordError: "הסיסמה השתנתה, תנחשי😉"
+        // passwordError: "סיסמה שגויה, נסי שנית 🔒"
     }
 };
