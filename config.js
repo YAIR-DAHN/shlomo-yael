@@ -38,7 +38,7 @@ const CONFIG = {
 
     // ===== 🔒 הגנת סיסמה (אופציונלי) =====
     passwordProtection: true,
-    password: "6666",
+    password: "1305",
 
     // ===== 🎨 צבעים =====
     colors: {
@@ -92,7 +92,7 @@ const CONFIG = {
     // ===== 📝 טקסטים =====
     texts: {
         siteTitle: "ספירה לאחור לחתונה",
-        countdownTitle: "ספירה לאחור לרגע הגדול",
+        countdownTitle: "יש אנשים שסופרים את העומר, אבל אנחנו את הגומר",
         galleryTitle: "הימים שלנו",
         revealText: "לחצי לגלות את ההפתעה של היום 💝",
         dayLabel: "יום",
